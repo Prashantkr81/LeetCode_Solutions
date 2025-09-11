@@ -1,0 +1,31 @@
+class Solution {
+    void helper(TreeNode root,int sum, ArrayList<Integer> arr){
+
+        if(root==null) return;
+
+        sum*=10;
+        sum+= root.val;
+
+        if(root.left ==null && root.right==null){
+            arr.add(sum);
+            return;
+        }
+
+        helper(root.left, sum, arr);
+        helper(root.right, sum, arr);
+
+    }
+    public int sumNumbers(TreeNode root) {
+        
+        ArrayList<Integer> arr= new ArrayList<>();
+
+        int temp=0;
+        helper(root,temp, arr);
+        int sum=0;
+        for(int x: arr){
+            sum+=x;
+        }
+        return sum;
+
+    }
+}
