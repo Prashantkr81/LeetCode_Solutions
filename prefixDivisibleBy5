@@ -1,0 +1,15 @@
+class Solution {
+    public List<Boolean> prefixesDivBy5(int[] nums) {
+        List<Boolean> result= new ArrayList<>(nums.length);
+        int prefix=0;
+
+        for(int x: nums){
+            prefix = ((prefix <<1 ) + x) % 5;
+            result.add(prefix==0);
+        }
+        return result;
+    }
+}
+
+// 0 <<1  0__  ' + ' new coming bit(say 1) mod 5 "by shifting we get one blank at right"
+// 01 << 1 01__ ' + ' new coming bit(say 0) mod 5 if yes discard full bit 
