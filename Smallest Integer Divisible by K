@@ -1,0 +1,16 @@
+//Smallest Integer Divisible by K 
+// Integers contains only 1-  1, 11, 111, 1111
+class Solution {
+    public int smallestRepunitDivByK(int k) {
+        if (k==1) return 1;
+
+        if(k%2==0 || k%5==0) return -1;
+
+        int rem=0;
+        for(int i=1; i<=k; i++){
+            rem = (rem*10+1)%k; // after each % rem reduces under k so it never cross int bound
+            if(rem==0) return i;
+        }
+        return -1;
+    }
+}
