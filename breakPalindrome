@@ -1,0 +1,22 @@
+class Solution {
+    public String breakPalindrome(String palindrome) {
+        
+        int n= palindrome.length();
+        if(n==1) return "";
+
+        char s[]= palindrome.toCharArray();
+
+        //search for first non 'a' char till half then change it to smallest lexicographical value ie 'a' 
+        // and return new String
+
+        for(int i=0; i<n/2; i++){
+            if(s[i] != 'a'){
+                s[i]='a';
+                return new String(s);
+            }
+        }
+        //if we didnt find non 'a' char means all char before mid is 'a' so just change last char to 2nd smallest lexicographical value ie 'b'
+        s[n-1]='b';
+        return new String(s);
+    }
+}
