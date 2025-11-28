@@ -1,0 +1,30 @@
+class Solution {
+//basic swap func
+    void swap(int num[], int a, int b){
+        int temp=num[a];
+        num[a]=num[b];
+        num[b]=temp;
+    }
+//basic reverse
+    void reverse(int num[], int l, int r){
+        while(l<r){
+            swap(num, l, r);
+            l++; r--;
+        }
+    }
+
+    public void nextPermutation(int[] nums) {
+        int n= nums.length;
+        int i=n-2;
+        
+        while(i>=0 && nums[i] >= nums[i+1]) i--; // find first smaller from the right
+        if(i>=0){
+            int j=n-1;
+            while(nums[j] <= nums[i]) j--; // find first greater number than num[i] toward right
+            swap(nums, i, j);]    // swap them
+        }
+
+        reverse(nums, i+1, n-1); 
+
+    }
+}
